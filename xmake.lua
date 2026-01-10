@@ -5,8 +5,8 @@ set_xmakever("2.8.2")
 includes("lib/commonlibsse-ng")
 
 -- set project
-set_project("commonlibsse-ng-template")
-set_version("0.0.0")
+set_project("GOG-Leak-Fix")
+set_version("1.0.0")
 set_license("GPL-3.0")
 
 -- set defaults
@@ -21,15 +21,15 @@ add_rules("mode.debug", "mode.releasedbg")
 add_rules("plugin.vsxmake.autoupdate")
 
 -- targets
-target("commonlibsse-ng-template")
+target("GOG-Leak-Fix")
     -- add dependencies to target
     add_deps("commonlibsse-ng")
 
     -- add commonlibsse-ng plugin
     add_rules("commonlibsse-ng.plugin", {
-        name = "commonlibsse-ng-template",
-        author = "libxse",
-        description = "SKSE64 plugin template using CommonLibSSE-NG"
+        name = "GOG-Leak-Fix",
+        author = "DwemerEngineer",
+        description = "Memory Leak Fix for GOG 1.6.1179"
     })
 
     -- add src files
