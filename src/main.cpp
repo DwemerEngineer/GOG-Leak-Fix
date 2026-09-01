@@ -1,14 +1,14 @@
 struct ReplaceRelease
 {
-	static void thunk(RE::BSGraphics::Renderer* renderer, RE::BSGraphics::Texture* tex)
+	static void thunk(RE::BSGraphics::Renderer*, RE::BSGraphics::Texture* tex)
 	{
-		if (_InterlockedExchangeAdd(&tex->unk20, 0xFFFFFFFF) == 1) {
+		if (_InterlockedExchangeAdd(&tex->refCount, 0xFFFFFFFF) == 1) {
 			if(tex->resourceView)
 				tex->resourceView->Release();
 			if (tex->texture) 
 				tex->texture->Release();
-			if (tex->unk08)
-				reinterpret_cast<ID3D11UnorderedAccessView*>(tex->unk08)->Release();
+			if (tex->resourceView)
+				tex->resourceView->Release();
 
 			REL::Relocation<void (void*, int)> NiMemFee{ RELOCATION_ID(102158, 109588) };
 			NiMemFee(tex, 0x28);
